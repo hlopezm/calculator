@@ -3,8 +3,11 @@ context = describe;
 
 
 function add(str) {
-    return 0 ;
+    if (str == "") {        
+        return 0; }
+    return parseInt(str) ;
 }
+
 
 /*to-do list
 test 1: 
@@ -16,7 +19,10 @@ puede tener N numeros
 */
 describe("the calculator", function(){
     it("doesn't make any conversion when it receive 0 numbers", function(){
-        expect(add([""])).toEqual(0);
+        expect(add("")).toEqual(0);
+    });
+    it("return the same numbers", function(){
+        expect(add("1")).toEqual(1);
     });
 });
 
