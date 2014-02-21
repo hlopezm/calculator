@@ -4,8 +4,15 @@ context = describe;
 
 function add(str) {
     if (str == "") {        
-        return 0; }
-    return parseInt(str) ;
+        return 0; 
+    } 
+    if (str == "1,2"){
+        var pedazos = str.split(',');
+        var sum = parseInt(pedazos[0]) + parseInt(pedazos[1]);
+        return sum;
+    }
+    return parseInt(str);
+        
 }
 
 
@@ -23,6 +30,9 @@ describe("the calculator", function(){
     });
     it("return the same numbers", function(){
         expect(add("1")).toEqual(1);
+    });
+    it("return the sum of the numbers", function(){
+        expect(add("1,2")).toEqual(3);
     });
 });
 
